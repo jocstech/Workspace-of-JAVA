@@ -1,0 +1,24 @@
+
+public class BinaryTreeNodePointer 
+{
+        public static  int leftValue,rightValue;
+	    
+		BinaryTreeNodePointer()
+		{
+			this.leftValue=(Integer) null;
+			this.rightValue=(Integer) null;
+		}
+		BinaryTreeNodePointer(int L,int R)
+		{
+			this.leftValue=L;
+			this.rightValue=R;
+		}
+		int getLeftValue()
+		{
+			return this.leftValue;
+		}
+		int getRightValue()
+		{
+			return this.leftValue;
+		}
+}

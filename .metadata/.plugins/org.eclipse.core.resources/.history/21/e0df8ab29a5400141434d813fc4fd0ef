@@ -1,0 +1,15 @@
+/**
+ * @author      Yulong Fang <jocstech@gmail.com>
+ * @version     1.0                 
+ * @since       2014-10-14          
+ */
+package heapData;
+
+public class HeapSystem {
+
+	public static void main(String[] args) 
+	{
+		
+	}
+
+}

@@ -1,0 +1,90 @@
+/*
+ * @Function Binary Search
+ * @Author Yulong Fang
+ * @#ID 100471536  
+ */
+
+public class binarysearch 
+{
+	char [] raw = null;
+	char [] target = null;
+	
+	public binarysearch()
+	{
+		this.raw=null;
+		this.target=null;
+	}
+	
+	public binarysearch(String data,String tar)
+	{
+		this.raw=data.toCharArray(); //String to char array
+		this.target=tar.toCharArray(); //String to char array
+		
+		boolean found=true;
+		int lower = 0; // Lower Bound of Array. 
+		int upper = raw.length -1 ;//Upper Bound of Array
+		int mid = 0;// Middle Point
+		
+		while(true)
+		{
+			if (lower > upper) // Case 1: Target isn't in Data
+			{
+				lower = -1;
+				System.out.println("Target Word Not Found!"); 
+				break;
+			}
+			mid = (lower+upper)/2;
+			if(target[0] < raw[mid] )
+			{
+				lower = mid + 1;
+			}
+			else if(target[0] == raw[mid] )
+			{
+				lower = mid;
+				for(int i = 0 ; i < target.length ; i++ )
+				{
+					if(target[i]==raw[mid+i])
+					{
+						found = true;
+					}
+					else
+					{
+						found = false;
+					}
+					System.out.print(raw[mid]);
+				}
+				System.out.println("Target Word Found at index: "+ mid+1);
+				break;
+			}
+			else // raw[mid] > target
+			{
+				lower = mid + 1;
+			}
+		}
+		
+		if(found)
+		{
+			System.out.println("Target Word Found!");
+		}
+		else
+		{
+			System.out.println("Target Word Not Found!"); 
+		}
+	}	
+	public static void main(String []args)
+	{
+		// Test The Binary Search
+		String text ="You have a long string containing many"
+				+ "characters (such as this paragraph), and you"
+				+ " want to search for a substring within this string. "
+				+ " For example, one may want to search for characters or "
+				+ "“want to” or “bstring wi” or “language”.  "
+				+ "All but the last example should be found";		
+		
+		String TargetWord = "the";
+		
+		
+		binarysearch BS = new binarysearch(text,TargetWord);
+		
+	}
+}

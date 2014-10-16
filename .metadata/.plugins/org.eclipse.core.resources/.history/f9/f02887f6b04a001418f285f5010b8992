@@ -1,0 +1,30 @@
+/*
+ * @Function Binary Search
+ * @Author Yulong Fang
+ * @#ID 100471536  
+ */
+
+public class binarysearch 
+{
+	char [] raw = null;
+	char [] target = null;
+	
+	bool contains(const Comparable & key, BinaryNode *leaf)
+	{
+	    if(!leaf)
+	        return false;
+
+	    if(leaf->element.find(key) != std::string::npos)
+	        return true;
+
+	    if( !contains(key, leaf->left) )
+	        return contains(key, leaf->right)
+
+	    return true;
+	}
+  
+	public static void main(String []args)
+	{
+		
+	}
+}

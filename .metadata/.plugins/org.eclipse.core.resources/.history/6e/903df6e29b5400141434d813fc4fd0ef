@@ -1,0 +1,35 @@
+/**
+ * @author      Yulong Fang <jocstech@gmail.com>
+ * @version     1.0                 
+ * @since       2014-10-14   
+ * @usage       Test the heap structure       
+ */
+package heapData;
+
+public class HeapSystem {
+
+	private MaxHeapData<Integer> heap;
+	public static void main(String[] args) 
+	{
+		int unsortedArray[] = {12,34,23,56,23,89,5,33,2,75,13,45,67,43,56,34,78,9,24};
+		int ArraySize = unsortedArray.length;
+		printArray(unsortedArray);
+		
+		heap = new MaxHeapData(<Integer>unsortedArray);
+		
+		
+		
+	}
+	
+	
+	
+	public static void printArray(int Array[])
+	{
+		for(int i:Array)
+		{
+			System.out.print(i+" ");
+		}
+		    System.out.print("\n");
+	}
+
+}

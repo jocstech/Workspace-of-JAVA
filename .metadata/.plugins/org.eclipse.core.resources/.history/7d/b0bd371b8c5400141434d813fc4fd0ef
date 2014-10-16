@@ -1,0 +1,103 @@
+/**
+ * @author      Yulong Fang <jocstech@gmail.com>
+ * @version     1.0                 
+ * @since       2014-10-14          
+ */
+package heapData;
+
+import java.lang.Comparable;
+import java.util.ArrayList;
+
+
+public class MaxHeap<T extends Comparable<T>>
+{
+	private int num;
+	private int heap_size;
+	private ArrayList<T> heap_items;
+	
+	public MaxHeap(ArrayList Heap, int Num, int Max)
+	{
+		heap_items       = Heap;
+		num              = Num;
+		heap_size        = Max;
+	}
+	
+	public int LeftChild(int i)
+	{
+		return 2*i+1;
+	}
+	public int RightChild(int i)
+	{
+		return 2*i+2;
+	}
+	
+	/*
+	 * Takes an arbitrary array and builds it into a max heap
+	 */
+	public void Build_Max_Heap(int []A)
+	{
+		heap_size = A.length;
+		for( int i=heap_size/2 ; i>=0 ; i-- )
+		{
+			Max_Heapify(A,i);
+		}
+	}
+	
+	/*
+	 * Takes an almost-heap with one violation, and fixes the violation
+	 */
+	public void Max_Heapify(int A[],int pos)
+	{
+		int k =heap_items.size() -1;
+		while(k > 0)
+		{
+			int p = (k-1)/2;
+			T heap_itmes = heap_items.get(k);
+			T parent = heap_items.get(p);
+			if(heap_items)
+
+		}
+	}
+	
+	/*
+	 * Returns the largest element in the max heap
+	 */
+	public void Heap_Maximum()
+	{
+		
+	}
+	
+	/*
+	 * 	Removes and returns the largest element in the max heap
+	 */
+	public void Heap_Extract_Max()
+	{
+		
+	}
+	
+	/*
+	 * Inserts a new element into the heap, preserving the heap property
+	 */
+	public void Max_Heap_Insert()
+	{
+		
+	}
+	
+	
+	/*
+	 * Prints the array representation (e.g. [16,14,10,8,7,3,9,1,4,2])
+	 */
+	public void printAsArray()
+	{
+		
+	}
+	
+	/*
+	 * Prints the heap as a sideways tree.
+	 */
+	public void printAsTree()
+	{
+		
+	}
+
+}

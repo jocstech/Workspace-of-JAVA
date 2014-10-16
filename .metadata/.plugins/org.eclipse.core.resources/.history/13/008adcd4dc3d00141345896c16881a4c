@@ -1,0 +1,49 @@
+package algorithm_studies;
+
+import java.awt.*;
+import java.text.NumberFormat;
+import java.text.ParseException;
+
+import javax.swing.*;
+import javax.swing.text.MaskFormatter;
+
+public class SortingGE extends JFrame {
+	
+	private JPanel window,display;
+	private JFormattedTextField d1,d2,d3,d4,d5,d6,d7,d8,d9,d10;
+	private JButton sortBtn;
+	
+	SortingGE()
+	{
+		window = new JPanel(new BorderLayout());
+		display = new JPanel(new GridLayout(1,10));
+		
+		MaskFormatter m;
+		try {
+			m = new MaskFormatter("##**##");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		} 
+		d1 = new JFormattedTextField(m);
+		d1.setColumns(1);
+
+		
+		display.add(d1);
+
+		
+		window.add(display,BorderLayout.NORTH);
+		
+		
+		this.setContentPane(window);
+		this.setSize(600, 400);
+		this.setVisible(true);
+		this.setLocationByPlatform(true);
+		
+	}
+
+	public static void main(String[] args) 
+	{
+		new SortingGE();
+	}
+
+}

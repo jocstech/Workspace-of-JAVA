@@ -1,0 +1,25 @@
+
+public class BinaryTree {
+
+	
+	private BinaryTreeNode btn1,btn2,btn3,btn4,btn5;
+	private BinaryTreeNode btnp1,btnp2,btnp3,btnp4,btnp5;
+	
+	
+	
+	void displayTree()
+	{
+		
+	}
+	
+	void OpitimizeTree()
+	{
+		
+	}
+	
+	public static void main(String[] args) 
+	{
+		
+	}
+
+}

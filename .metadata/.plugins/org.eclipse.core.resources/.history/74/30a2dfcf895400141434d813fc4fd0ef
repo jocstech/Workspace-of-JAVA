@@ -1,0 +1,86 @@
+/**
+ * @author      Yulong Fang <jocstech@gmail.com>
+ * @version     1.0                 
+ * @since       2014-10-14          
+ */
+package heapData;
+
+import java.lang.Comparable;
+
+
+public class MaxHeap<T extends Comparable<T>>
+{
+	private int num;
+	private int heap_size;
+	private T[] heap_Array_items;
+	
+	public MaxHeap(T[] Heap, int Num, int Max)
+	{
+		heap_Array_items = Heap;
+		num              = Num;
+		heap_size        = Max;
+	}
+	
+	public MaxHeap()
+	{
+		
+	}
+	
+	/*
+	 * Takes an arbitrary array and builds it into a max heap
+	 */
+	public void Build_Max_Heap(int[]A)
+	{
+		
+	}
+	
+	/*
+	 * Takes an almost-heap with one violation, and fixes the violation
+	 */
+	public void Max_Heapify(int pos)
+	{
+		asser(pos >= 0)
+	}
+	
+	/*
+	 * Returns the largest element in the max heap
+	 */
+	public void Heap_Maximum()
+	{
+		
+	}
+	
+	/*
+	 * 	Removes and returns the largest element in the max heap
+	 */
+	public void Heap_Extract_Max()
+	{
+		
+	}
+	
+	/*
+	 * Inserts a new element into the heap, preserving the heap property
+	 */
+	public void Max_Heap_Insert()
+	{
+		
+	}
+	
+	
+	/*
+	 * Prints the array representation (e.g. [16,14,10,8,7,3,9,1,4,2])
+	 */
+	public void printAsArray()
+	{
+		
+	}
+	
+	/*
+	 * Prints the heap as a sideways tree.
+	 */
+	public void printAsTree()
+	{
+		
+	}
+
+}

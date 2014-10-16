@@ -1,0 +1,19 @@
+
+public class BinaryTreeNode 
+{
+	private int nodeKey=0;
+	private String data=null;
+	private boolean isVisted=false;
+	private BinaryTreeNode leftChild=null,rightChild=null;
+
+	
+	public BinaryTreeNode(){}
+	
+	public BinaryTreeNode(int key, String data)
+	{
+		this.nodeKey=key;
+		this.data=data;
+		this.leftChild=null;
+		this.rightChild=null;
+	}
+}

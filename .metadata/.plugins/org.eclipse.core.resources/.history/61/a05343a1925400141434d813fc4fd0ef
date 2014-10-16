@@ -1,0 +1,165 @@
+/**
+ * @author      Yulong Fang <jocstech@gmail.com>
+ * @version     1.0                 
+ * @since       2014-10-14          
+ */
+package heapData;
+
+import java.lang.Comparable;
+
+public class MaxHeap<E extends Comparable<? super E>>
+{
+	private int num;       // 
+	private int heap_size; // Size of heap
+	private E[] heap_items;//
+	
+	/*
+	 * Portal for all entrance
+	 */
+	public MaxHeap(E[]Heap, int Num, int Max) 
+	{
+		heap_items       = Heap;
+		num              = Num;
+		heap_size        = Max;
+		
+	}
+	public int parent(int pos)
+	{
+		return (pos-1)/2;
+	}
+	
+	public int LeftChild(int pos)
+	{
+		return 2*pos+1;
+	}
+	public int RightChild(int pos)
+	{
+		return 2*pos+2;
+	}
+	
+	public boolean isChild(int pos)
+	{
+		if( pos >= num/2 && pos<num )
+		{
+			return true;
+			
+		}else return false;
+	}
+	
+	public int getSize()
+	{
+		return num;
+	}
+	
+	public void swap( int frist, int last )
+	{
+		 E temp = heap_items[frist];
+         heap_items[frist]=heap_items[last];
+         heap_items[last]=temp;
+	}
+	
+	/*
+	 * Takes an arbitrary array and builds it into a max heap
+	 */
+	public void Build_Max_Heap(E []A)
+	{
+		heap_size = A.length;
+		for( int i=heap_size/2 ; i>=0 ; i-- )
+		{
+			Max_Heapify(i);
+		}
+	}
+	
+	/*
+	 * Takes an almost-heap with one violation, and fixes the violation
+	 */
+	public void Max_Heapify(int pos)
+	{
+		
+		while(!isChild(pos))
+		{
+			int left = LeftChild(pos);
+			if((left<(num-1)) && (heap_items[left].compareTo(heap_items[left+1])< 0 ))
+				left++;
+			if( heap_items[pos].compareTo(heap_items[left]) >= 0 )
+				return;
+			
+			swap(pos,left);
+			
+			pos = left;
+		}
+		
+	}
+	
+	/*
+	 * Returns the largest element in the max heap
+	 */
+	public void Heap_Maximum()
+	{
+		
+	}
+	
+	/*
+	 * 	Removes and returns the largest element in the max heap
+	 */
+	public void Heap_Extract_Max()
+	{
+		
+	}
+	
+	/*
+	 * Inserts a new element into the heap, preserving the heap property
+	 */
+	public void Max_Heap_Insert(E value)
+	{
+		assert num < heap_size : "Heap is now full.";
+		int current = num++;
+		heap_items[current]= value;
+		
+	}
+	
+	public E remove(int pos)
+	{
+		if(pos == ( num-1 )) num--;
+		else
+		{
+			swap(pos,--num);
+			while((pos > 0) && (heap_items[pos].compareTo(heap_items[parent(pos)]) >0 ))
+			{
+				
+			}
+		}
+		
+		
+	}
+	
+	public void Heap_Sort()
+	{
+		for(int i= heap_items.length-1 ; i >= 0 ; i--)
+		{
+			swap(0,i);
+			
+			heap_size = heap_size-1;
+			
+			Max_Heapify(0);
+		}
+	}
+	
+	
+	/*
+	 * Prints the array representation (e.g. [16,14,10,8,7,3,9,1,4,2])
+	 */
+	public void printAsArray()
+	{
+		
+	}
+	
+	/*
+	 * Prints the heap as a sideways tree.
+	 */
+	public void printAsTree()
+	{
+		
+	}
+
+}

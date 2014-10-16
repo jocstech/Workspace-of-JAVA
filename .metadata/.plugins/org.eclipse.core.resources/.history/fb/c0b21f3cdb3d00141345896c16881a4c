@@ -1,0 +1,40 @@
+package algorithm_studies;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class SortingGE extends JFrame {
+	
+	private JPanel window,display;
+	private JTextField d1,d2,d3,d4,d5,d6,d7,d8,d9,d10;
+	private JButton sortBtn;
+	
+	SortingGE()
+	{
+		window = new JPanel(new BorderLayout());
+		display = new JPanel(new GridLayout(10,1));
+		d1= new JTextField();
+		d2= new JTextField();
+		d3= new JTextField();
+		d4= new JTextField();
+		d5= new JTextField();
+		d6= new JTextField();
+		d7= new JTextField();
+		d8= new JTextField();
+		d9= new JTextField();
+		d10= new JTextField();
+		
+		
+		this.setContentPane(window);
+		this.setSize(600, 400);
+		this.setVisible(true);
+		this.setLocationByPlatform(true);
+		
+	}
+
+	public static void main(String[] args) 
+	{
+		new SortingGE();
+	}
+
+}

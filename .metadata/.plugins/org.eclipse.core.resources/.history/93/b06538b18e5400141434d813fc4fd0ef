@@ -1,0 +1,140 @@
+/**
+ * @author      Yulong Fang <jocstech@gmail.com>
+ * @version     1.0                 
+ * @since       2014-10-14          
+ */
+package heapData;
+
+import java.lang.Comparable;
+import java.util.ArrayList;
+
+
+public class MaxHeap<T extends Comparable<T>>
+{
+	private int num;
+	private int heap_size;
+	private ArrayList<T> heap_items;
+	
+	/*
+	 * Portal for all entrance
+	 */
+	public MaxHeap(ArrayList Heap, int Num, int Max) 
+	{
+		heap_items       = Heap;
+		num              = Num;
+		heap_size        = Max;
+	}
+	
+	public int LeftChild(int i)
+	{
+		return 2*i+1;
+	}
+	public int RightChild(int i)
+	{
+		return 2*i+2;
+	}
+	
+	/*
+	 * Takes an arbitrary array and builds it into a max heap
+	 */
+	public void Build_Max_Heap(int []A)
+	{
+		heap_size = A.length;
+		for( int i=heap_size/2 ; i>=0 ; i-- )
+		{
+			Max_Heapify(A,i);
+		}
+	}
+	
+	/*
+	 * Takes an almost-heap with one violation, and fixes the violation
+	 */
+	public void Max_Heapify(int A[],int pos)
+	{
+		int left =LeftChild(pos);
+		int right =RightChild(pos);
+		int largestIndex = -1;
+		
+		if( left < heap_size && A[left]>A[pos] )
+		{
+			largestIndex = 1;
+		}
+		else 
+        {
+            largestIndex = pos;
+        }
+  
+        if( right <heap_size && A[right]>A[largestIndex])
+        {
+            largestIndex = right;
+        }
+
+        if( largestIndex != pos)
+        {   //Swap 
+            int temp = A[pos];
+            A[pos]=A[largestIndex];
+            A[largestIndex]=temp;
+            //Recursive call
+            Max_Heapify(A, largestIndex);
+        }
+	}
+	
+	/*
+	 * Returns the largest element in the max heap
+	 */
+	public void Heap_Maximum()
+	{
+		
+	}
+	
+	/*
+	 * 	Removes and returns the largest element in the max heap
+	 */
+	public void Heap_Extract_Max()
+	{
+		
+	}
+	
+	/*
+	 * Inserts a new element into the heap, preserving the heap property
+	 */
+	public void Max_Heap_Insert(T value)
+	{
+		assert num < heap_size : "Heap is now full.";
+		int current = num++;
+		heap_items[current]= value;
+		
+	}
+	
+	public void Heap_Sort(int A[])
+	{
+		for(int i= A.length-1 ; i >= 0 ; i--)
+		{
+			int temp = A[0];
+			A[0]=A[i];
+			A[i]=temp;
+			
+			heap_size = heap_size-1;
+			
+			Max_Heapify(A,0);
+		}
+	}
+	
+	
+	/*
+	 * Prints the array representation (e.g. [16,14,10,8,7,3,9,1,4,2])
+	 */
+	public void printAsArray()
+	{
+		
+	}
+	
+	/*
+	 * Prints the heap as a sideways tree.
+	 */
+	public void printAsTree()
+	{
+		
+	}
+
+}

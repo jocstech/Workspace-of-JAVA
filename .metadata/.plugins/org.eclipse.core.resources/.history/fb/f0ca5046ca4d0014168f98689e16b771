@@ -1,0 +1,341 @@
+
+import java.util.ArrayList;
+
+public class Graph {
+	private int n ; // number of nodes
+	private int m ; // number of arcs
+	private ArrayList <Node>node ; // ArrayList *or* array of nodes
+	private boolean [][] A ; // adjacency matrix
+	private double [][] C ; // cost matrix
+	
+	 // constructors
+	public Graph ()
+	{
+		this.n=0;
+		this.m=0;
+		}
+	
+	public Graph ( int n )
+	{
+		this.n=n;
+		this.m=0;
+		
+		
+	}
+	
+	// setters
+	public void setN ( int n )
+	{
+		this.n = n;
+	}
+	
+	public void setM ( int m )
+	{
+		this.m = m;
+	}
+	public void setArc ( int i , int j , boolean b )
+	{
+		this.A[i][j]=b;
+		this.A[j][i]=b;
+	}
+	
+	public void setCost ( int i , int j , double c )
+	{
+		this.C[i][j]=c;
+		this.C[j][i]=c;
+	}
+	
+	// getters
+	public int getN ()
+	{
+		return n;
+	}
+	public int getM ()
+	{
+		return m;
+	}
+	public boolean getArc ( int i , int j )
+	{
+		return A[i][j];
+	}
+	public double getCost ( int i , int j )
+	{
+		return C[i][j];
+	}
+	public Node getNode ( int i )
+	{
+		return node.get(i); 
+	}
+	
+	public void init ( int n ) 
+	{
+		this.n= n;
+		this.m= 0;
+		
+		node = new ArrayList <Node>(n);
+		A = new boolean [n][n];
+		C = new double [n][n];
+		for (int i=0;i<n;i++)
+		{
+			for (int j=0;j<n;j++)
+			{
+				A[i][j]=false;
+			C[i][j]=0;
+		}
+		}
+		
+		}// initialize values and arrays
+	public void reset ()
+	{
+		n=0;
+		m=0;
+		node=null;
+		A=null;
+		C=null;
+	}// reset the graph
+	public boolean existsArc ( int i , int j )
+	{
+	if (i!=j&&i<=n&&j<=n)
+		return true;
+	else
+		return false;
+	
+	}// check if arc exists
+	public boolean existsNode ( Node t ) 
+	{
+		for(Node s:node)
+		{
+			if (s.equals(t))
+				return true;
+		}
+		return false;
+		
+	}// check if node exists
+	public boolean addArc ( int i , int j )
+	{
+		if (A[i][j]==false)
+				{
+			m=m+1;
+			return true;
+			
+			}
+		if (A[j][i]=true)
+		{
+			m=m+1;
+			return true;}
+		C[i][j] = Node.distance(node.get(i), node.get(j));
+			//C[i][j]=C[j][i];
+				
+
+			return false;
+		
+	}// add an arc , return T/F success
+	public void removeArc ( int k )
+	{
+		int a=0;
+		for(int i=0;i<n;i++)
+		{
+			for(int j=0;j<n;j++)
+			{
+				if (A[i][j]==true)
+				{
+					a++;
+					if(a==k)
+						A[i][j]=false;
+					A[j][i]=false;
+					C[i][j]=0;
+					C[j][i]=0;
+					m--;
+					break;
+				}
+				if (a==k)
+					break;
+			
+			}
+			
+	}
+	}// remove an arc
+	public boolean addNode ( Node t)
+	{
+	
+	boolean flag = true;
+	for( Node s:node )
+	{
+		if(s.getName().equals(t.getName()) || (s.getLat()==t.getLat() && s.getLon()==t.getLon()))
+		{
+			System.out.println("ERROR: City name and/or coordinates already exist!");
+			flag =false;
+			break;
+		}	
+		if(flag =true)
+		{
+			node.add(t);
+			return flag;
+		}
+		
+			
+	}
+	
+	
+    return true;
+	
+
+		
+	
+		
+		
+	}// add a node
+	
+	public void print () 
+	{
+		System.out.println("Number of nodes: " + this.n);
+		System.out.println("Number of arcs: " + this.m );
+		System.out.print("\n");
+		printNodes();
+		printArcs();
+	}// print all graph info
+	public void printNodes ()
+	{
+		System.out.println("NODE LIST");
+		System.out.print("No.");
+		System.out.print("               ");
+		System.out.print("Name");
+		System.out.print("        ");
+		System.out.print("Coordinates\n");
+		for (int i=0; i<41;i++)
+		{
+			System.out.print("-");
+			
+		}
+		System.out.print("\n");
+		int number =1;
+		for (int j=0; j < this.node.size();j++)
+		{
+			System.out.print("  " + number);
+			number++;
+			System.out.print("                  ");
+			Node a = getNode(j); // FYL
+			String name = a.getName();
+			double lat = a.getLat();
+			double lon = a.getLon();
+			System.out.print(name);
+			System.out.print("                ");
+			System.out.format("<%.1f,%.1f>\n",lat,lon);
+		
+		}
+		
+		
+				
+	}// print node list
+	public void printArcs ()
+	{
+		System.out.println("ARC LIST");
+
+		System.out.print("No.");
+		System.out.print("    ");
+		System.out.print("Cities");
+		System.out.print("       ");
+		System.out.println("Distance");
+		for (int i =0; i<28;i++)
+		{
+			System.out.print("-");
+		}
+		System.out.println();
+		int number =1;
+		
+		for (int j=0;j<this.n;j++)
+		{
+			for (int k=j;k<this.n;k++)
+			{
+				if (existsArc(j,k))
+				{
+					System.out.print("  " + number);
+					number++;
+					System.out.print("       ");
+					int a = j+1;
+					int b = k+1;
+					System.out.print(a + "-" + b);
+					System.out.print("        ");
+					
+					
+					
+					
+					
+			        System.out.format("%.2f", C[j][k]);
+			        System.out.print("\n");
+			   
+			   
+			 
+					
+					
+					
+				}
+					
+			}
+		}
+		
+		
+		
+		
+	}// print arc list
+	
+	public boolean checkPath ( int [] P )
+	{
+		if (P[0]!= P[this.n])
+		{
+			System.out.println("ERROR: Start and end cities must be the same!\n");
+			return false;
+		}
+		
+		int i =0;
+		do
+		{
+			int j = i+1;
+			do 
+			{
+				if (P[i]==P[j])
+				{
+					System.out.println("\nERROR: Cities cannot be visited more than once!");
+					System.out.println("ERROR: Not all cities are visited!\n");
+					return false ;
+				}
+				j++;
+			}
+				while( j < this.n);
+				i++;
+		} while (i<=this.n);
+		int a =0;
+		do 
+		{
+		if (existsArc(P[a], P[a+1]))
+		{
+			System.out.println("\nERROR: Arc " + (P[a] + 1) + "-" + (P[a+1] + 1) + "does not exist!\n");
+			return false;
+		} a++;
+		}
+		
+		while (a<this.n);
+		return true;
+				
+	}	
+	
+		
+		
+	
+	// check feasibility of path P
+	public double pathCost ( int [] P )
+	{
+		double d = 0.0;
+		int i =0;
+		do 
+		{
+			d = d + getCost(P[i],P[i+1]);
+			i++;
+		}while (i<this.n);
+		return d;
+		
+	}// calculate cost of path P
+ }
+	
+
+

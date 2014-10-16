@@ -1,0 +1,67 @@
+package algorithm_studies;
+
+import java.awt.*;
+import java.text.NumberFormat;
+import java.text.ParseException;
+
+import javax.swing.*;
+import javax.swing.text.MaskFormatter;
+
+public class SortingGE extends JFrame {
+	
+	private JPanel window,display;
+	private JFormattedTextField d1,d2,d3,d4,d5,d6,d7,d8,d9,d10;
+	private JButton sortBtn;
+	
+	SortingGE()
+	{
+		window = new JPanel(new BorderLayout());
+		display = new JPanel(new GridLayout(1,10));
+		
+		MaskFormatter m;
+		try {
+			m = new MaskFormatter("#");
+			d1 = new JFormattedTextField(m);
+			d2 = new JFormattedTextField(m);
+			d3 = new JFormattedTextField(m);
+			d4 = new JFormattedTextField(m);
+			d5 = new JFormattedTextField(m);
+			d6 = new JFormattedTextField(m);
+			d7 = new JFormattedTextField(m);
+			d8 = new JFormattedTextField(m);
+			d9 = new JFormattedTextField(m);
+			d10 = new JFormattedTextField(m);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		} 
+
+
+		
+		display.add(d1);
+		display.add(d2);
+		display.add(d3);
+		display.add(d4);
+		display.add(d5);
+		display.add(d6);
+		display.add(d7);
+		display.add(d8);
+		display.add(d9);
+		display.add(d10);
+
+		
+		window.add(display,BorderLayout.NORTH);
+		
+		
+		this.setContentPane(window);
+		this.setSize(600, 400);
+		this.setVisible(true);
+		this.setLocationByPlatform(true);
+		
+	}
+
+	public static void main(String[] args) 
+	{
+		new SortingGE();
+	}
+
+}

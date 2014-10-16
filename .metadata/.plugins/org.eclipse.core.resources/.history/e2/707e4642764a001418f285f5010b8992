@@ -1,0 +1,28 @@
+
+public class assignment1 {
+	public static void main(String[] args) 
+	{
+		
+		String str = "Hello ! word'do Dyou Hae  lis bue s ase;";
+		char[]charArray = str.toCharArray();
+		String tar = "lis";
+		char[]tarArray = tar.toCharArray();
+		
+		for(int i = 0 ; i < charArray.length ; i ++)
+		{
+				if(charArray[i]==tarArray[0])
+				{
+					for(int n = 1 ; n < tarArray.length ; n++ )
+					{
+						if(charArray[i]==tarArray[0])
+						else
+						{
+							System.out.print("Not Found");
+							break;
+						}
+						System.out.print("Found!");
+					}
+				}
+		}
+	}
+}

@@ -1,0 +1,30 @@
+/*
+ * @Function Binary Search
+ * @Author Yulong Fang
+ * @#ID 100471536  
+ */
+
+public class binarysearch 
+{
+	
+	Comparable<String> comp;
+	
+	
+  
+	public static void main(String []args)
+	{
+		
+	}
+}
+
+class BinaryNode
+{
+	String key;
+	BinaryNode leftChild;
+	BinaryNode rightChild;
+	
+	BinaryNode()
+	{
+		
+	}
+}

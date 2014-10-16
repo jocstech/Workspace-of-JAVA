@@ -1,0 +1,39 @@
+
+public class assignment1 {
+	public static void main(String[] args) 
+	{
+		boolean found=true;
+		String str = "Hello ! word'do Dyou Hae  lis bue s ase;";
+		char[]charArray = str.toCharArray();
+		String tar = "bue s";
+		char[]tarArray = tar.toCharArray();
+		
+		for(int i = 0 ; i < charArray.length ; i ++)
+		{
+				if(charArray[i]==tarArray[0])
+				{
+					for(int n = 0 ; n < tarArray.length ; n++ )
+					{
+						if(charArray[i+n]==tarArray[n])
+						{
+							found =true;
+						}
+						else
+						{
+							found = false;
+
+						}					
+					}
+
+				}
+		}
+		if(found)
+		{
+			System.out.print(" Found! ");
+		}
+		else
+		{
+			System.out.print(" Not Found!");
+		}
+	}
+}

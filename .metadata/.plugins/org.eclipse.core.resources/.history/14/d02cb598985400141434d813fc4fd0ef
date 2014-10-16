@@ -1,0 +1,204 @@
+/**
+ * @author      Yulong Fang <jocstech@gmail.com>
+ * @version     1.0                 
+ * @since       2014-10-14       
+ */
+package heapData;
+
+import java.lang.Comparable;
+
+public class MaxHeapData<E extends Comparable<? super E>>
+{
+	/*
+	 * Global Var
+	 */
+	private int nodeSize; // number of nodes in current heap
+	private int capacity; // maximum size of heap
+	private E[] heapArray;// Max-Heap array from (generic data form)
+	
+	/*
+	 * @param       Heap unsorted array
+     * @param       Num 
+     * @param       Max   
+	 */
+	public MaxHeapData(E[]Heap, int Num, int Max) 
+	{
+		heapArray       = Heap;
+		nodeSize        = Num;
+		capacity        = Max;
+		Build_Max_Heap(); // Starts to build the heap data stucture.
+		
+	}
+	public int parentIndex(int pos)
+	{
+		return (pos-1)/2;
+	}
+	
+	/*
+	 * return the right child index of the array for current node.
+	 */
+	public int leftChildIndex(int pos)
+	{
+		return 2*pos+1;
+	}
+	
+	/*
+	 * return the right child index of the array for current node.
+	 */
+	public int rightChildIndex(int pos)
+	{
+		return 2*pos+2;
+	}
+	
+	/*
+	 * test if this node is the child node
+	 */
+	public boolean isChildNode(int pos)
+	{
+		if( pos >= nodeSize/2 && pos<nodeSize )
+		{
+			return true;
+			
+		}else return false;
+	}
+	/*
+	 * return the numbers of nodes in total of the heap
+	 */
+	public int getSize()
+	{
+		return nodeSize;
+	}
+	
+	/*
+	 * return :The height of the heap.
+	 */
+	public int getHeight()
+	{
+		double approxHeight =Math.log(this.nodeSize) / Math.log(2);
+		int  actualHeight = (int) (Math.floor(approxHeight)+1);
+		return actualHeight;
+	}
+	
+	public void swapNode( int frist, int last )
+	{
+		 E temp = heapArray[frist];
+         heapArray[frist]=heapArray[last];
+         heapArray[last]=temp;
+	}
+	
+	/*
+	 * Takes an arbitrary array and builds it into a max heap
+	 */
+	public void Build_Max_Heap()
+	{
+		capacity = heapArray.length;
+		for( int i=capacity/2 ; i>=0 ; i-- )
+		{
+			Max_Heapify(i);
+		}
+	}
+	
+	/*
+	 * Takes an almost-heap with one violation, and fixes the violation
+	 */
+	public void Max_Heapify(int pos)
+	{
+		
+		while(!isChildNode(pos))
+		{
+			int left = leftChildIndex(pos);
+			if((left<(nodeSize-1)) && (heapArray[left].compareTo(heapArray[left+1])< 0 ))
+				left++;
+			if( heapArray[pos].compareTo(heapArray[left]) >= 0 )
+				return;
+			
+			swapNode(pos,left);
+			
+			pos = left;
+		}
+		
+	}
+	
+	/*
+	 * Returns the largest element in the max heap
+	 */
+	public E Heap_Maximum()
+	{
+		//Since in Max-Heap, the largest element is the first node's value in heap array.
+		return heapArray[0];
+	}
+	
+	/*
+	 * 	Removes and returns the largest element in the max heap
+	 */
+	public E Heap_Extract_Max()
+	{
+		swapNode(0,--nodeSize);
+		if(nodeSize !=0) Max_Heapify(0);
+		return heapArray[nodeSize];
+	}
+	
+	/*
+	 * Inserts a new element into the heap, preserving the heap property
+	 */
+	public void Max_Heap_Insert(E value)
+	{
+		assert nodeSize < capacity : "Heap is now full.";
+		int current = nodeSize++;
+		heapArray[current]= value;
+		
+	}
+	
+	/*
+	 * Remove an element in the heap at exact position 
+	 */
+	public E remove(int pos)
+	{
+		if(pos == ( nodeSize-1 )) nodeSize--;
+		else
+		{
+			swapNode(pos,--nodeSize);
+			while((pos > 0) && (heapArray[pos].compareTo(heapArray[parentIndex(pos)]) >0 ))
+			{
+				swapNode(pos,parentIndex(pos));
+				pos = parentIndex(pos);
+			}
+			if(nodeSize!=0) Max_Heapify(pos);
+		}
+		
+		return heapArray[nodeSize];
+	}
+	
+	public void Heap_Sort()
+	{
+		for(int i= heapArray.length-1 ; i >= 0 ; i--)
+		{
+			swapNode(0,i);
+			
+			capacity = capacity-1;
+			
+			Max_Heapify(0);
+		}
+	}
+	
+	
+	/*
+	 * Prints the array representation (e.g. [16,14,10,8,7,3,9,1,4,2])
+	 */
+	public void printAsArray()
+	{
+		for (int i = 0 ; i < heapArray.length ; i++)
+		{
+			System.out.print(heapArray[i] + " ");
+		}
+	}
+	
+	/*
+	 * Prints the heap as a sideways tree.
+	 */
+	public void printAsTree()
+	{
+		
+	}
+
+}

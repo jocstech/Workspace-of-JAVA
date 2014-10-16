@@ -1,0 +1,19 @@
+package algorithm_studies;
+
+public class Method 
+{
+	int[]res;
+	
+	 Method(int[] indata)
+	{
+		res=null;
+		res=indata;
+		//method case 
+	}
+	 
+	 int[] res()
+	 {
+		 return res;
+	 }
+
+}

@@ -1,0 +1,19 @@
+1413388056610	Rename type 'Heap'
+1413388428941	Rename type 'Build_Max_Heap'
+1413391357730	Rename local variable 'heap_Array_itmes'
+1413391377014	Rename field 'heap_Array_items'
+1413395163623	Delete element
+1413395187267	Rename type 'MaxHeap'
+1413395423971	Rename field 'heap_size'
+1413395473667	Rename field 'heap_items'
+1413395675138	Rename method 'LeftChild'
+1413395685267	Rename method 'RightChild'
+1413395693076	Rename method 'RightChildIndex'
+1413395699095	Rename method 'LeftChildIndex'
+1413395710313	Rename method 'parent'
+1413395717588	Rename method 'isChild'
+1413397203977	Rename method 'reftChildIndex'
+1413397230629	Rename method 'swap'
+1413399055874	Infer generic type arguments
+1413399069577	Infer generic type arguments
+1413399074446	Infer generic type arguments

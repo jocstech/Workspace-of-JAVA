@@ -1,0 +1,14 @@
+import java.lang.Comparable;
+
+package heapData;
+
+public class MaxHeap<E extends Comparable<? supter E>>
+{
+	int heap_size;
+	
+	MaxHeap()
+	{
+		
+	}
+
+}

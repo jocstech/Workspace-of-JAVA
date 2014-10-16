@@ -1,0 +1,60 @@
+package heapData;
+
+import java.lang.Comparable;
+
+
+public class MaxHeap<E extends Comparable<? super E>>
+{
+	private int num;
+	private E[] heap;
+	private int heap_size;
+	
+	public MaxHeap(E[] Heap, int Num, int Max)
+	{
+		heap      = Heap;
+		num       = Num;
+		heap_size = Max;
+		
+	}
+	
+	public MaxHeap()
+	{
+		
+	}
+	
+	public void Build_Max_Heap()
+	{
+		
+	}
+	
+	public void Max_Heapify()
+	{
+		
+	}
+	
+	public void Heap_Maximum()
+	{
+		
+	}
+	
+	public void Build_Extract_Max()
+	{
+		
+	}
+	
+	public void Max_Heap_Insert()
+	{
+		
+	}
+	
+	public void printAsArray()
+	{
+		
+	}
+	
+	public void printAsTree()
+	{
+		
+	}
+
+}

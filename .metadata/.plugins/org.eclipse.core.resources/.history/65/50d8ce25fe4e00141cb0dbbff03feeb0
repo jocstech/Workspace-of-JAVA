@@ -1,0 +1,10 @@
+package sortingMethod;
+
+public class Bucketssort {
+
+	public static void main(String[] args) 
+	{
+		
+	}
+
+}

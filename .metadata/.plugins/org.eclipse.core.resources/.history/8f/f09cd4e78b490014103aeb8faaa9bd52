@@ -1,0 +1,26 @@
+
+public class BinaryTreeNode 
+{
+	private BinaryTreeNode leftSubNode,rightSubNode;
+	public static int nodeValue;
+	
+	BinaryTreeNode()
+	{
+		nodeValue=(Integer)null;
+	}
+	BinaryTreeNode(int Value)
+	{
+		this.nodeValue=Value;
+	}
+	
+	void setValue(int nodeValue)
+	{
+		this.nodeValue=nodeValue;
+	}
+	
+	int getNodeValue()
+	{
+		return this.nodeValue;
+	}
+	
+}

@@ -1,0 +1,48 @@
+package sortingMethod;
+
+public class Bucketssort {
+
+	private int[]ary;
+	private int[]sorted;
+	
+	public Bucketssort(int[]arr,int maxVal)
+	{
+		this.ary = arr;
+		int[] bucket= new int[maxVal+1];
+		for(int i:bucket)
+		{
+			bucket[i]=0;
+		}
+		for(int i:arr)
+		{
+			bucket[arr[i]]++;
+		}
+		
+		int outPos=0;
+		for(int i:bucket)
+		{
+			for(int j = 0 ; j < bucket[i]; j++)
+			{
+				arr[outPos++]=i;
+			}
+		}
+		
+	}
+	
+	void PrintRes()
+	{
+		for(int i:sorted)
+		{
+			System.out.print(",");
+			System.out.print(sorted[i]);
+		}
+	}
+	
+	public static void main(String[] args) 
+	{
+	
+		Bucketssort bs = new Bucketssort([0.1,0.99,0.5,0.8,0.01,0.31,0.95,0.12,0.3,0.4],5);
+		
+	}
+
+}

@@ -1,0 +1,23 @@
+
+public class BinaryTree {
+
+	
+	
+	void displayTree()
+	{
+		
+	}
+	
+	void OpitimizeTree()
+	{
+		
+	}
+	
+	public static void main(String[] args) 
+	{
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,26 @@
+
+public class BinaryTreeNode 
+{
+	public static BinaryTreeNodePointer leftpointer,rightpointer;
+	public static int nodeValue;
+	
+	BinaryTreeNode()
+	{
+		nodeValue=(Integer)null;
+	}
+	BinaryTreeNode(int Value)
+	{
+		this.nodeValue=Value;
+	}
+	
+	void setValue(int nodeValue)
+	{
+		this.nodeValue=nodeValue;
+	}
+	
+	int getNodeValue()
+	{
+		return this.nodeValue;
+	}
+	
+}
